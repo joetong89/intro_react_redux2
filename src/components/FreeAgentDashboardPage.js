@@ -4,7 +4,8 @@ import PlayersListFilters from './PlayersListFilters';
 
 const FreeAgentDashboardPage = (props) => (
     <div className="container">
-        <h1>Let's add some code here!</h1>
+        <PlayersListFilters />
+        <PlayersList />
     </div>
 );
 

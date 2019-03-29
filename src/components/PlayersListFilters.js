@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { sortByName, sortBySkill, setFilterText, setFilterType} from '../actions/filters';
 
 const PlayersListFilters = (props) => (
     <div className="players-list-filters">
@@ -38,4 +40,10 @@ const PlayersListFilters = (props) => (
     </div>
 );
 
-export default PlayersListFilters;
+const mapStatetoProps = (state) => {
+    return {
+        filters: state.filters,
+    }
+}
+
+export default connect(mapStatetoProps)(PlayersListFilters);

@@ -1,15 +1,17 @@
 import React from 'react';
 import PlayerForm from './PlayerForm';
+import { connect } from 'react-redux';
+import { addPlayer } from '../actions/players';
 
 const AddPlayerPage = (props) => (
     <div className="container">
         <h1>Add a Player</h1>
         <PlayerForm 
             onSubmit={(player) => {
-                alert("You still need to add your create player code!");
+                props.dispatch(addPlayer(props.history, player));
             }}
         />
     </div>
 );
 
-export default AddPlayerPage;
+export default connect()(AddPlayerPage)

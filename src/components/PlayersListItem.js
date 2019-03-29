@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { removePlayer } from '../actions/players';
+import { connect } from 'react-redux';
 
 const PlayersListItem = ({ dispatch, id, name, sport_type, skill_level, gender, message }) => (
     <div className="player">
@@ -12,10 +14,10 @@ const PlayersListItem = ({ dispatch, id, name, sport_type, skill_level, gender, 
                 {message}
             </p>
             <button className="button button-clear" onClick={() => {
-                alert("Add Remove Player code!");
+                dispatch(removePlayer({id}));
             }}>Remove</button>
         </div>
     </div>
 );
 
-export default PlayersListItem;
+export default connect()(PlayersListItem);
